@@ -6,7 +6,7 @@ def train_and_evaluate_models(train_features, test_features, train_labels, test_
     # --- Logistic Regression ---
     logistic_model = LogisticRegression(max_iter=1000)
     logistic_model.fit(train_features, train_labels)
-    logistic_predictions = logistic_regression_model = logistic_model.predict(test_features)
+    logistic_predictions = logistic_model.predict(test_features)
     
     # Calculate Metrics
     logistic_acc = accuracy_score(test_labels, logistic_predictions)

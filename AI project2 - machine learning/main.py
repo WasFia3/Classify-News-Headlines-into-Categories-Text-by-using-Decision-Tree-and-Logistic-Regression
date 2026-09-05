@@ -1,8 +1,11 @@
+import os
+
 from data_processor import load_and_preprocess_data
 from train_models import train_and_evaluate_models
 from visualizer import generate_performance_visuals
 
-DATASET_FILE_PATH = 'train.parquet.parquet' 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATASET_FILE_PATH = os.path.join(PROJECT_DIR, 'train.parquet.parquet')
 
 # 1. Load data
 (f_train, f_test, l_train, l_test), v_tool = load_and_preprocess_data(DATASET_FILE_PATH)

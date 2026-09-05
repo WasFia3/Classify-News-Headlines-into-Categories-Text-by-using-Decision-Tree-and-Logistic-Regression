@@ -1,6 +1,10 @@
+import os
+
 import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 import numpy as np
+
+OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def generate_performance_visuals(trained_decision_tree, vectorizer_tool, 
                                  logistic_accuracy, decision_tree_accuracy, 
@@ -15,7 +19,7 @@ def generate_performance_visuals(trained_decision_tree, vectorizer_tool,
               rounded=True, 
               fontsize=10)
     plt.title("Decision Tree Visualization (Root and Top Nodes)")
-    plt.savefig('decision_tree_graph.png', bbox_inches='tight')
+    plt.savefig(os.path.join(OUTPUT_DIR, 'decision_tree_graph.png'), bbox_inches='tight')
     plt.close() 
 
     # --- 2. Model Performance Comparison Bar Chart ---
@@ -52,6 +56,6 @@ def generate_performance_visuals(trained_decision_tree, vectorizer_tool,
     attach_value_labels(f1_bars)
 
     plt.tight_layout()
-    plt.savefig('performance_comparison_chart.png')
+    plt.savefig(os.path.join(OUTPUT_DIR, 'performance_comparison_chart.png'))
     plt.close()
-    print("Picttures saved succesfully in the floder.")
+    print(f"Pictures saved successfully in: {OUTPUT_DIR}")
