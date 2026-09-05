@@ -3,9 +3,6 @@
 Classifying news headlines into **4 categories** (World 🌍 / Sports ⚽ / Business 💰 / Sci-Tech 🔬) using
 TF-IDF text features, and comparing two classic supervised-learning models on exactly the same data.
 
-Built for **COMP338 – Artificial Intelligence**, with a colourful desktop GUI so you can watch the two
-models disagree in real time ^_^
-
 | Model | Accuracy | Weighted F1 |
 |---|---|---|
 | 🥇 **Logistic Regression** | **90.8 %** | **90.8 %** |
