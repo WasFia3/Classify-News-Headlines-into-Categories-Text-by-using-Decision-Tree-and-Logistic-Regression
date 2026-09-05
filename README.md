@@ -12,7 +12,7 @@ models disagree in real time ^_^
 | 🥈 Decision Tree (`max_depth=20`) | 54.7 % | 55.7 % |
 
 > **Spoiler:** the tree loses by ~36 points, and the reason is *entropy* + *information gain* —
-> the exact two things from the lecture notes. Full explanation below 👇
+> the exact two things from the lecture notes. Full explanation below:
 
 ---
 
@@ -23,7 +23,7 @@ Both models trained on the same 96,000 headlines and tested on the same 24,000.
 
 ![Results tab](screenshots/01-results.png)
 
-### 2. Classify a headline — the fun part ✨
+### 2. Classify a headline 
 Type any headline and both models guess it live, with their confidence for **all four** categories.
 
 ![Classify tab](screenshots/02-classify.png)
@@ -32,7 +32,7 @@ Look closely at this one — it is the whole story of the project in one picture
 
 * Logistic Regression says **World, 90 % confident** ✅
 * The Decision Tree says **Sci/Tech, 26 % confident** ❌ ... and 26 % is basically *a random guess*
-  (with 4 categories, pure guessing = 25 %). The tree is not really "deciding" here at all 😵
+  (with 4 categories, pure guessing = 25 %). The tree is not really "deciding" here at all 🤠
 
 ### 3. Full reports — precision / recall / F1 per class
 Captured straight from `classification_report()`.
@@ -113,13 +113,13 @@ And the two extremes from the notes:
 This project has **4 classes**, so max entropy = **2 bits**, and a "perfectly mixed" set = 25 % each.
 Same idea, just a bigger scale.
 
-### Step 2 — Remember information gain 🎯
+### Step 2 — Remember information gain 
 
 > **Information gain** = how much the chaos *drops* when we split on a certain attribute.
 
 $$Gain(S, A) = H(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} H(S_v)$$
 
-> **Lowest entropy = Highest info gain** ✍️
+> **Lowest entropy = Highest info gain** 
 
 In the play-tennis example from the notes, the tree looks at only **4 attributes**
 (Outlook, Humidity, Wind, Temperature) over **14 cases**, and picks the attribute with the biggest gain:
@@ -129,7 +129,7 @@ $$Gain(S, Wind) = 0.94 - \tfrac{8}{14}(0.81) - \tfrac{6}{14}(1) = 0.048$$
 That is **5.1 %** of the 0.94 bits of chaos removed — and Wind was the *weakest* of the four attributes.
 Outlook was much stronger, which is why ID3 put Outlook at the root 🌳
 
-### Step 3 — Now look at OUR tree's root node 😱
+### Step 3 — Now look at OUR tree's root node 
 
 In our project the tree does the exact same search — but instead of 4 attributes it has to choose
 between **5,000 words**, over **96,000 headlines**. Here is the winner it found (from screenshot 5):
@@ -144,7 +144,7 @@ between **5,000 words**, over **96,000 headlines**. Here is the winner it found 
               True (no "iraq")                          False (has "iraq")
                     /                                        \
         stocks <= 0.034                                  prices <= 0.109
-        gini = 0.749   <-- 😐 almost UNCHANGED            gini = 0.148  <-- 🎉 nice and pure
+        gini = 0.749   <-- meh almost UNCHANGED            gini = 0.148  <-- 🎉 nice and pure
         samples = 92545  (96.4 % of the data!)           samples = 3455  (only 3.6 %)
 ```
 
